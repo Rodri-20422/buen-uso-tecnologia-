@@ -1,0 +1,1399 @@
+/* =====================================================
+   EL BUEN USO DE LA TECNOLOGÍA
+   Carlos Manuel Cox Rosse
+   Diseño: Negro + Glassmorphism
+===================================================== */
+
+
+/* =====================================================
+   1. CONFIGURACIÓN GENERAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(37, 99, 235, 0.15),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(124, 58, 237, 0.13),
+            transparent 30%
+        ),
+        #050505;
+
+    color: #f5f5f5;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+
+/* Brillo ambiental */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(37, 99, 235, 0.035),
+            transparent 45%
+        );
+
+    z-index: -1;
+    body::after {
+    content: "";
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(59, 130, 246, 0.045);
+    filter: blur(100px);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -2;
+}
+}
+
+
+/* Selección de texto */
+
+::selection {
+    background: rgba(96, 165, 250, 0.3);
+    color: white;
+}
+
+
+/* =====================================================
+   2. CONTENEDOR
+===================================================== */
+
+.container {
+    width: min(1120px, 90%);
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   3. HEADER
+===================================================== */
+
+.header {
+    position: sticky;
+    top: 15px;
+
+    width: min(1120px, 92%);
+
+    margin: 15px auto;
+
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Barra de navegación */
+
+.nav {
+    min-height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* =====================================================
+   4. MARCA / LOGO
+===================================================== */
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    color: white;
+
+    text-decoration: none;
+
+    min-width: 0;
+}
+
+
+/* Imagen del logo */
+
+.brand img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 3px;
+    flex-shrink: 0;
+    transition: 0.35s ease;
+}
+
+.brand:hover img {
+    transform: rotate(-4deg) scale(1.06);
+    border-color: rgba(96, 165, 250, 0.5);
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.2);
+}
+
+/* Nombre del colegio */
+
+.brand div {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand strong {
+    font-family: "Poppins", sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.2;
+
+    letter-spacing: 0.3px;
+}
+
+.brand span {
+    color: #8f8f8f;
+
+    font-size: 11px;
+
+    margin-top: 3px;
+}
+
+
+/* =====================================================
+   5. MENÚ
+===================================================== */
+
+nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 26px;
+}
+
+nav a {
+    position: relative;
+
+    color: #bdbdbd;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: 0.3s ease;
+}
+
+
+/* Línea debajo del enlace */
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        #3b82f6,
+        #8b5cf6
+    );
+
+    border-radius: 10px;
+
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: white;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+
+/* =====================================================
+   6. HERO
+===================================================== */
+
+.hero {
+    min-height: 88vh;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 90px 0 100px;
+}
+
+
+/* Grid del Hero */
+
+.hero-grid {
+    display: grid;
+
+    grid-template-columns: 1.05fr 0.95fr;
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+
+/* Contenido */
+
+.hero-content {
+    max-width: 650px;
+
+    animation: aparecer 0.8s ease forwards;
+}
+
+
+/* Pequeño texto superior */
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #8abaff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.2px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+}
+
+.eyebrow::before {
+    content: "";
+    width: 18px;
+    height: 1px;
+    background: linear-gradient(90deg, #60a5fa, #a78bfa);
+}
+
+
+/* Título */
+
+.hero h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(45px, 6vw, 78px);
+    font-weight: 800;
+    line-height: 1.03;
+    letter-spacing: -2.5px;
+    margin-bottom: 25px;
+    color: white;
+}
+
+/* Palabra "tecnología" */
+
+.hero h1 span {
+    display: inline-block;
+
+    background: linear-gradient(
+        90deg,
+        #60a5fa,
+        #a78bfa
+    );
+
+    background-clip: text;
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* Texto del Hero */
+
+.hero-text {
+    color: #9f9f9f;
+
+    font-size: 17px;
+
+    max-width: 570px;
+
+    margin-bottom: 32px;
+}
+
+
+/* =====================================================
+   7. BOTÓN
+===================================================== */
+
+.button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 13px 24px;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+    );
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    font-size: 14px;
+
+    box-shadow:
+        0 10px 35px rgba(37, 99, 235, 0.25);
+
+    transition: 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 40px rgba(37, 99, 235, 0.4);
+}
+
+
+/* =====================================================
+   8. IMAGEN DEL HERO
+===================================================== */
+
+.hero-image {
+    position: relative;
+
+    animation: aparecer 1s ease 0.15s forwards;
+
+    opacity: 0;
+}
+
+
+/* Imagen */
+
+.hero-image img {
+    display: block;
+
+    width: 100%;
+
+    height: 500px;
+
+    object-fit: cover;
+
+    border-radius: 26px;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.6),
+        0 0 60px rgba(37, 99, 235, 0.12);
+}
+
+
+/* Brillo sobre imagen */
+
+.hero-image::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.08),
+            transparent 40%
+        );
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* Etiqueta sobre imagen */
+
+.image-label {
+    position: absolute;
+
+    left: 20px;
+    bottom: 20px;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 10px 15px;
+
+    border-radius: 12px;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    color: #eeeeee;
+
+    font-size: 12px;
+}
+
+
+/* Puntito */
+
+.dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #60a5fa;
+
+    box-shadow:
+        0 0 12px rgba(96, 165, 250, 0.9);
+}
+
+
+/* =====================================================
+   9. SECCIONES GENERALES
+===================================================== */
+
+.section {
+    padding: 110px 0;
+}
+
+
+/* Encabezados */
+
+.section-heading {
+    max-width: 750px;
+
+    margin-bottom: 55px;
+}
+
+.section-heading h2 {
+    font-family: "Poppins", sans-serif;
+
+    font-size: clamp(32px, 4vw, 48px);
+
+    line-height: 1.15;
+
+    margin-bottom: 18px;
+}
+
+.section-heading > p:last-child {
+    color: #999;
+
+    font-size: 16px;
+
+    max-width: 700px;
+}
+
+
+/* =====================================================
+   10. TARJETAS
+===================================================== */
+
+.cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+/* Tarjeta */
+
+.card {
+    padding: 32px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 22px;
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* Hover */
+
+.card:hover {
+    transform: translateY(-8px);
+
+    background: rgba(255, 255, 255, 0.075);
+
+    border-color: rgba(96, 165, 250, 0.3);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35),
+        0 0 30px rgba(37, 99, 235, 0.08);
+}
+
+
+/* Icono */
+
+.icon {
+    font-size: 30px;
+
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-family: "Poppins", sans-serif;
+
+    font-size: 21px;
+
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #999;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   11. HIGHLIGHT
+===================================================== */
+
+.highlight {
+    padding: 100px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37, 99, 235, 0.09),
+            rgba(124, 58, 237, 0.09)
+        );
+}
+
+
+/* Contenido */
+
+.highlight-grid {
+    display: grid;
+
+    grid-template-columns: 1.3fr 0.7fr;
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+
+/* Título */
+
+.highlight h2 {
+    font-family: "Poppins", sans-serif;
+
+    font-size: clamp(34px, 4.5vw, 55px);
+
+    line-height: 1.1;
+
+    max-width: 800px;
+}
+
+
+/* Segunda parte del título */
+
+.highlight h2 span {
+    display: block;
+
+    background: linear-gradient(
+        90deg,
+        #60a5fa,
+        #a78bfa
+    );
+
+    background-clip: text;
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* Texto lateral */
+
+.highlight-grid > p {
+    color: #999;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   12. CONSEJOS
+===================================================== */
+
+.tips {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+
+/* Consejo */
+
+.tip {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    padding: 25px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 18px;
+
+    transition: 0.3s ease;
+}
+
+
+/* Hover */
+
+.tip:hover {
+    background: rgba(255, 255, 255, 0.07);
+
+    transform: translateX(5px);
+
+    border-color: rgba(96, 165, 250, 0.2);
+}
+
+
+/* Número */
+
+.tip > span {
+    min-width: 40px;
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+    );
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+/* Texto */
+
+.tip h3 {
+    font-family: "Poppins", sans-serif;
+
+    font-size: 17px;
+
+    margin-bottom: 5px;
+}
+
+.tip p {
+    color: #999;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   13. ADVERTENCIA
+===================================================== */
+
+.warning {
+    padding: 100px 0;
+}
+
+
+/* Caja */
+
+.warning-grid {
+    display: grid;
+
+    grid-template-columns: 90px 1fr;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 45px;
+
+    background: rgba(239, 68, 68, 0.045);
+
+    border: 1px solid rgba(239, 68, 68, 0.16);
+
+    border-radius: 24px;
+}
+
+
+/* Símbolo */
+
+.warning-symbol {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(239, 68, 68, 0.1);
+
+    border: 1px solid rgba(239, 68, 68, 0.25);
+
+    color: #fca5a5;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 28px;
+
+    font-weight: 700;
+}
+
+
+/* Título */
+
+.warning h2 {
+    font-family: "Poppins", sans-serif;
+
+    font-size: clamp(27px, 4vw, 40px);
+
+    margin-bottom: 12px;
+}
+
+
+/* Texto */
+
+.warning-grid > div:last-child > p:last-child {
+    color: #999;
+
+    max-width: 800px;
+}
+
+
+/* =====================================================
+   14. PROYECTO
+===================================================== */
+
+.project {
+    padding: 110px 0;
+}
+
+
+/* Caja */
+
+.project-box {
+    display: grid;
+
+    grid-template-columns: 180px 1fr;
+
+    gap: 55px;
+
+    align-items: center;
+
+    padding: 55px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 25px;
+}
+
+
+/* Marca */
+
+.project-mark {
+    font-family: "Poppins", sans-serif;
+
+    font-size: 48px;
+
+    font-weight: 800;
+
+    letter-spacing: -3px;
+
+    color: white;
+}
+
+.project-mark span {
+    background: linear-gradient(
+        135deg,
+        #60a5fa,
+        #a78bfa
+    );
+
+    background-clip: text;
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* Título */
+
+.project-box h2 {
+    font-family: "Poppins", sans-serif;
+
+    font-size: clamp(28px, 4vw, 42px);
+
+    line-height: 1.15;
+
+    margin-bottom: 18px;
+}
+
+
+/* Texto */
+
+.project-box > div:last-child > p:not(.eyebrow) {
+    color: #999;
+
+    max-width: 720px;
+}
+
+
+/* =====================================================
+   15. DATOS DEL COLEGIO
+===================================================== */
+
+.school-data {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 35px;
+}
+
+
+.school-data > div {
+    padding: 18px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 14px;
+}
+
+
+/* Etiqueta */
+
+.school-data strong {
+    display: block;
+
+    color: #777;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 5px;
+}
+
+
+/* Valor */
+
+.school-data span {
+    color: #ddd;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   16. CONCLUSIÓN
+===================================================== */
+
+.conclusion {
+    padding: 110px 0;
+
+    text-align: center;
+}
+
+
+.conclusion .container {
+    max-width: 850px;
+}
+
+
+.conclusion h2 {
+    font-family: "Poppins", sans-serif;
+
+    font-size: clamp(28px, 4vw, 45px);
+
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+
+    color: #eeeeee;
+}
+
+
+.conclusion p:last-child {
+    color: #999;
+
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   17. FOOTER
+===================================================== */
+
+footer {
+    padding: 35px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    background: rgba(255, 255, 255, 0.025);
+
+    color: #777;
+}
+
+
+.footer-content {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.footer-content strong {
+    display: block;
+
+    color: #ddd;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+
+    margin-bottom: 4px;
+}
+
+
+.footer-content p {
+    font-size: 12px;
+}
+
+
+.footer-content > span {
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   18. ANIMACIÓN
+===================================================== */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   19. TABLETS
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .nav {
+        min-height: 70px;
+    }
+
+
+    nav {
+        gap: 15px;
+    }
+
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+
+    .hero-content {
+        text-align: center;
+
+        margin: 0 auto;
+    }
+
+
+    .hero-text {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .hero-image {
+        width: min(700px, 100%);
+
+        margin: 0 auto;
+    }
+
+
+    .highlight-grid {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .project-box {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+
+    .project-mark {
+        font-size: 40px;
+    }
+
+}
+
+
+/* =====================================================
+   20. CELULARES
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .header {
+        top: 8px;
+
+        width: 94%;
+
+        margin-top: 8px;
+    }
+
+
+    .nav {
+        min-height: 65px;
+    }
+
+
+    .brand img {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .brand strong {
+        font-size: 11px;
+    }
+
+
+    .brand span {
+        font-size: 9px;
+    }
+
+
+    nav {
+        display: none;
+    }
+
+
+    .hero {
+        min-height: auto;
+
+        padding: 70px 0 80px;
+    }
+
+
+    .hero h1 {
+        font-size: clamp(40px, 13vw, 58px);
+
+        letter-spacing: -1.5px;
+    }
+
+
+    .hero-text {
+        font-size: 15px;
+    }
+
+
+    .hero-image img {
+        height: 350px;
+
+        border-radius: 20px;
+    }
+
+
+    .image-label {
+        left: 12px;
+        bottom: 12px;
+    }
+
+
+    .section,
+    .project,
+    .warning,
+    .conclusion {
+        padding: 75px 0;
+    }
+
+
+    .section-heading {
+        margin-bottom: 35px;
+    }
+
+
+    .section-heading h2 {
+        font-size: 32px;
+    }
+
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+
+    .tips {
+        grid-template-columns: 1fr;
+    }
+
+
+    .warning-grid {
+        grid-template-columns: 1fr;
+
+        padding: 30px;
+
+        gap: 20px;
+    }
+
+
+    .warning-symbol {
+        width: 55px;
+        height: 55px;
+    }
+
+
+    .project-box {
+        padding: 30px;
+
+        border-radius: 20px;
+    }
+
+
+    .school-data {
+        grid-template-columns: 1fr;
+    }
+
+
+    .footer-content {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+}
+
+
+/* =====================================================
+   21. CELULARES PEQUEÑOS
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .container {
+        width: 88%;
+    }
+
+
+    .brand strong {
+        font-size: 10px;
+    }
+
+
+    .brand span {
+        display: none;
+    }
+
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+
+    .hero-image img {
+        height: 300px;
+    }
+
+
+    .card {
+        padding: 25px;
+    }
+
+
+    .tip {
+        padding: 20px;
+    }
+
+}.card,
+.tip,
+.project-box,
+.warning-grid {
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before,
+.tip::before,
+.project-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 70%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(96, 165, 250, 0.8),
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.card:hover::before,
+.tip:hover::before,
+.project-box:hover::before {
+    left: 120%;
+}/* =========================================
+   ANIMACIONES EXTRA
+========================================= */
+
+.section,
+.highlight,
+.warning,
+.project,
+.conclusion {
+    animation: subir 0.8s ease both;
+}
+
+@keyframes subir {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
